@@ -5,12 +5,12 @@ const User = require("../models/User");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
 
-// 🔹 SIGNUP
+
 router.post("/signup", async (req, res) => {
     try {
         let { name, email, password } = req.body;
 
-        // check if user already exists
+
         let existingUser = await User.findOne({ email });
         if (existingUser) {
             return res.json({ message: "User already exists" });
@@ -36,7 +36,6 @@ router.post("/signup", async (req, res) => {
 });
 
 
-// 🔹 LOGIN
 router.post("/login", async (req, res) => {
     try {
         let { email, password } = req.body;

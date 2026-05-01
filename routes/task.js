@@ -4,7 +4,7 @@ const router = express.Router();
 const Task = require("../models/Task");
 const auth = require("../middleware/auth");
 
-// CREATE TASK
+
 router.post("/create", auth, async (req, res) => {
     let { title, description, dueDate, priority, assignedUser } = req.body;
 
@@ -20,7 +20,7 @@ router.post("/create", auth, async (req, res) => {
     res.send(task);
 });
 
-// GET TASKS
+
 router.get("/all", auth, async (req, res) => {
     let tasks = await Task.find({
         assignedTo: req.userId
@@ -29,7 +29,7 @@ router.get("/all", auth, async (req, res) => {
     res.send(tasks);
 });
 
-// 🔹 UPDATE STATUS (Done / To Do)
+
 router.put("/update/:id", auth, async (req, res) => {
     try {
         let task = await Task.findById(req.params.id);
@@ -38,7 +38,7 @@ router.put("/update/:id", auth, async (req, res) => {
             return res.json({ message: "Task not found" });
         }
 
-        // toggle status
+        
         if(task.status === "To Do"){
             task.status = "In Progress";
         }
@@ -63,7 +63,6 @@ router.put("/update/:id", auth, async (req, res) => {
 });
 
 
-// 🔹 DELETE TASK
 router.delete("/delete/:id", auth, async (req, res) => {
     try {
         await Task.findByIdAndDelete(req.params.id);

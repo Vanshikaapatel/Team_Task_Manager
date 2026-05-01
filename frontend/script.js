@@ -1,6 +1,6 @@
-const API = "https://team-task-manager-s6gy.onrender.com";
+const API = "http://localhost:5000";
 
-// SIGNUP
+
 async function signup(){
     let name = document.getElementById("name").value;
     let email = document.getElementById("email").value;
@@ -16,7 +16,7 @@ async function signup(){
 }
 
 
-// LOGIN
+
 async function login(){
     let email = document.getElementById("loginEmail").value;
     let password = document.getElementById("loginPassword").value;
@@ -34,18 +34,17 @@ async function login(){
     return;
 }
 
-    // 🔐 Save token
+    
     localStorage.setItem("token", data.token);
 
-    // 🔥 DEBUG
+   
     console.log("Token after login:", localStorage.getItem("token"));
 
-    // 🔄 Redirect
+   
     window.location.href = "dashboard.html";
 }
 
 
-// GET TASKS
 async function getTasks(){
 
     let res = await fetch(API + "/task/all", {
@@ -102,7 +101,7 @@ async function getTasks(){
 }
 
 
-// CREATE TASK
+
 async function createTask(){
 
     let title = document.getElementById("title").value;
@@ -126,17 +125,17 @@ async function createTask(){
         })
     });
 
-    // 🔥 YEH ADD KARNA HAI (IMPORTANT)
+    
     let data = await res.json();
     console.log("Task response:", data);
 
     alert("Task added");
 
-    // 🔄 tasks reload
+    
     getTasks();
 }
 
-// 🔁 Toggle Done
+
 async function toggleTask(id){
     await fetch(API + "/task/update/" + id, {
         method: "PUT",
@@ -149,7 +148,7 @@ async function toggleTask(id){
 }
 
 
-// 🗑 Delete
+
 async function deleteTask(id){
     await fetch(API + "/task/delete/" + id, {
         method: "DELETE",
