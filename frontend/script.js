@@ -1,4 +1,4 @@
-const API = "http://localhost:5000";
+const API = "https://team-task-manager-s6gy.onrender.com";
 
 // SIGNUP
 async function signup(){
