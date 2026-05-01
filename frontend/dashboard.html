@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Task Manager</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #cbe9e7;
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 700px;
+            margin: 40px auto;
+            background: rgb(255, 255, 255);
+            padding: 50px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            background: #2938db;
+            color: white;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #2938d9;
+        }
+
+        .task-list {
+            margin-top: 20px;
+        }
+
+        .task-item {
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            background: #f9f9f9;
+            border-left: 5px solid #4CAF50;
+        }
+
+        .form {
+            margin-top: 30px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 6px 0;
+            border-radius: 6px;
+            border: 4px solid #b0f2b0;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 30px;
+            font-weight: bold;
+        }
+
+        .project-box {
+            background: #eef3ff;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-box h3 {
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        .project-box input {
+            width: 100%;
+            padding: 8px;
+            margin: 6px 0;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .project-box button {
+            width: 100%;
+            padding: 8px;
+            background: #3f51b5;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .project-box button:hover {
+            background: #303f9f;
+        }
+
+        .stats-box {
+            background: #fff4e6;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .stats-box p {
+            margin: 5px 0;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">📋 MY TASK MANAGER DASHBOARD</div>
+
+    <div class="project-box">
+        <h3>Create Project</h3>
+        <input id="projectName" placeholder="Project Name">
+        <button onclick="createProject()">Create</button>
+    </div>
+
+    <div class="top-bar">
+        <button onclick="getTasks()">Load Tasks</button>
+        <button onclick="logout()">Logout</button>
+    </div>
+
+    <div id="tasks" class="task-list"></div>
+
+    <div class="form">
+        <h3>Add New Task</h3>
+
+        <input id="title" placeholder="Task Title">
+        <input id="desc" placeholder="Description">
+        <input id="date" placeholder="Due Date">
+        <input id="priority" placeholder="Priority (Low/High)">
+        <input id="assignedUser" placeholder="Assign to (email)">
+
+        <button onclick="createTask()">Add Task</button>
+    </div>
+
+    <div class="stats-box">
+    <h3>📊 Dashboard Stats</h3>
+
+    <p>Total Tasks: <span id="totalTasks">0</span></p>
+    <p>Done Tasks: <span id="doneTasks">0</span></p>
+    <p>Pending Tasks: <span id="pendingTasks">0</span></p>
+    <p>Overdue Tasks: <span id="overdueTasks">0</span></p>
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+<script>
+function logout(){
+    localStorage.removeItem("token");
+    window.location.href = "login.html";
+}
+</script>
+
+</body>
+</html>

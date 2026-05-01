@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Task Manager</title>
+
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #cbe9e7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container {
+            background: white;
+            padding: 40px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 15px;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border-radius: 6px;
+            border: 1px solid #aae3b3;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            background: #2938db;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #559ba5;
+        }
+
+        hr {
+            margin: 20px 0;
+        }
+
+        .title {
+            text-align: center;
+            margin-bottom: 20px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <div class="title">Team Task Manager 💻</div>
+
+    <h2>Signup</h2>
+
+    <input id="name" placeholder="Enter Name">
+    <input id="email" placeholder="Enter Email">
+    <input id="password" placeholder="Enter Password">
+
+    <button onclick="signup()">Signup</button>
+
+    <hr>
+
+    <h2>Login</h2>
+
+    <input id="loginEmail" placeholder="Enter Email">
+    <input id="loginPassword" placeholder="Enter Password">
+
+    <button onclick="login()">Login</button>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
